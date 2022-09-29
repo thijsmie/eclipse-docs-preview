@@ -1,0 +1,62 @@
+#
+# Copyright(c) 2022 ZettaScale Technology and others
+#
+# This program and the accompanying materials are made available under the
+# terms of the Eclipse Public License v. 2.0 which is available at
+# http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+# v. 1.0 which is available at
+# http://www.eclipse.org/org/documents/edl-v10.php.
+#
+# SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+#
+
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-20.04
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.10'
+    name: install_python
+    displayName: Install Python
+  - bash: |
+      set -ex
+      sudo apt-get install -y doxygen
+      git fetch origin ${BUILD_SOURCEBRANCHNAME}
+      git checkout ${BUILD_SOURCEBRANCHNAME}
+      pip install poetry --user --upgrade
+      poetry install
+    name: install_project_deps
+    displayName: Install project dependencies
+  - bash: |
+      set -ex
+      mkdir repos
+      git clone --depth=1 --branch=master https://github.com/fatima1108/cyclonedds repos/cyclonedds
+      git clone --depth=1 --branch=master https://github.com/fatima1108/cyclonedds-cxx repos/cyclonedds-cxx
+      git clone --depth=1 --branch=master https://github.com/fatima1108/cyclonedds-python repos/cyclonedds-python
+      git clone --depth=1 --branch=master https://github.com/Fatima1108/eclipse-cyclonedds.github.io repos/web
+      mv repos/web/content content
+    name: clone_repos
+    displayName: Clone relevant git repos
+  - bash: |
+      set -ex
+      poetry run builder --project-c ./repos/cyclonedds --project-cpp ./repos/cyclonedds-cxx --project-py ./repos/cyclonedds-python --version latest
+    name: run_site_builder
+    displayName: Run site build
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: $(known_hosts_entry)
+      sshKeySecureFile: deploy_key
+  - bash: |
+      set -ex
+      git config --local user.name "Azure Pipelines"
+      git config --local user.email "azuredevops@microsoft.com"
+      git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+      # Let python tool handle the gh-pages sync
+      poetry run ghp-import --no-jekyll --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history pages/
+      git push -f origin gh-pages
+    name: publish
+    displayName: Publish

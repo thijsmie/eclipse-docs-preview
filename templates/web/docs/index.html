@@ -1,0 +1,30 @@
+{% set page = "docs" %}
+{% set root = "../" %}
+{% set title = "Cyclone DDS Pro - Documentation" %}
+{% extends "_base.html" %}
+
+{% block content %}
+    <main>
+      <div class="container">
+        <div class="row my-1">
+          <h1>Documentation</h1>
+        </div>
+
+        {% for project, pconfig in config.projects.items() %}
+        <div class="row">
+          <div class="col-12 rounded border bg-light my-2 py-2">
+            <h2 class="mb-2">{{ pconfig.name }}</h2>
+            <div class="row my-2">
+              <div class="col-12 mb-1">
+                <div class="btn-group">
+                  <a class="btn btn-outline-primary btn-sm" href="{{ root }}docs/{{ project }}/index.html">Documentation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </main>
+{% endblock content %}

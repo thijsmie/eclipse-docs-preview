@@ -1,0 +1,23 @@
+{
+    "projects": {
+        "cyclonedds": {
+            "name": "Eclipse Cyclone DDS",
+            "short": "Main",
+            "repository": "https://github.com/fatima1108/cyclonedds",
+            "language": "c"
+        },
+        "cyclonedds-cxx": {
+            "name": "Eclipse Cyclone DDS: C++ backend",
+            "short": "C++",
+            "repository": "https://github.com/fatima1108/cyclonedds-cxx",
+            "language": "c++"
+        },
+        "cyclonedds-python": {
+            "name": "Eclipse Cyclone DDS: Python backend",
+            "short": "Python",
+            "repository": "https://github.com/fatima1108/cyclonedds-python",
+            "language": "python3"
+        }
+    },
+    "webrepo": "https://github.com/fatima1108/eclipse-cyclonedds.github.io"
+}

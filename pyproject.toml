@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "website"
+version = "0.1.0"
+description = ""
+authors = ["Eclipse Cyclone DDS Committers"]
+packages = [ { include = "builder" } ]
+
+[tool.poetry.scripts]
+builder = 'builder:main'
+
+[tool.poetry.dependencies]
+python = "^3.9"
+staticjinja = "^4"
+Sphinx = "^4"
+breathe = "^4"
+cmake = "^3"
+piccolo-theme = "^0.12"
+ghp-import = "^2"
+GitPython = "^3"
+exhale = "^0.3"
+typing-extensions = "^4"
+Markdown = "^3"
+Pygments = "^2.12"
+myst-parser = "^0.18"
+sphinx-tabs = "^3.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

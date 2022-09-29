@@ -1,0 +1,10 @@
+repos/
+was-updated
+__pycache__/
+.venv/
+pages/*.html
+pages/content
+pages/docs
+content/
+deploy.key
+deploy.key.pub
