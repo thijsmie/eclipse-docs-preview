@@ -13,6 +13,13 @@
 trigger: none
 pr: none
 
+schedules:
+- cron: "*/15 * * * *"
+  displayName: Regular refresh
+  branches:
+    include:
+    - master
+
 pool:
   vmImage: ubuntu-20.04
 
