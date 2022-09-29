@@ -37,8 +37,8 @@ exhale_args = {
 
 html_theme = "piccolo_theme"
 html_static_path = ["_static"]
-html_css_files = ['/css/docu.css']
-html_js_files = ['/js/docu.js']
+html_css_files = ['css/docu.css']
+html_js_files = ['js/docu.js']
 autosummary_generate=True
 
 # Tell sphinx what the primary language being documented is.
