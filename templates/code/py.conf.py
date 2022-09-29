@@ -3,6 +3,6 @@
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "piccolo_theme"
-html_css_files = ['css/docu.css']
-html_js_files = ['js/docu.js']
+html_css_files = ['docu.css']
+html_js_files = ['docu.js']
 
