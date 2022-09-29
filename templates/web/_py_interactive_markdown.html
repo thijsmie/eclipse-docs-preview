@@ -1,5 +1,5 @@
 {% set page = content.category %}
-{% set title = "Eclipse Cyclone DDS - FAQ" %}
+{% set title = "Eclipse Cyclone DDS" %}
 {% extends "_base.html" %}
 
 {# This template is used for python notebook interactive markdown files. #}
@@ -7,9 +7,9 @@
 
 {% block head %}
 {{ super () }}
-<link rel="stylesheet" href="/css/pygments.css">
-<link rel="stylesheet" href="/css/markdown.css">
-<link rel="stylesheet" href="/css/interactive.css">
+<link rel="stylesheet" href="{{ root }}css/pygments.css">
+<link rel="stylesheet" href="{{ root }}css/markdown.css">
+<link rel="stylesheet" href="{{ root }}css/interactive.css">
 {% endblock head %}
 
 {% block navbar_extensions %}

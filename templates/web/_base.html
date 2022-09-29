@@ -11,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="{{ root }}css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="{{ root }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ root }}css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ root }}css/style.css">
+    <link rel="stylesheet" href="{{ root }}css/syntax.css">
     {% endblock head %}
   </head>
 
@@ -28,10 +28,10 @@
     {% include '_footer.html' with context %}
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/tether.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/highlight.min.js"></script>
+    <script src="{{ root }}js/jquery.min.js"></script>
+    <script src="{{ root }}js/tether.min.js"></script>
+    <script src="{{ root }}js/bootstrap.min.js"></script>
+    <script src="{{ root }}js/highlight.min.js"></script>
     <script> $(function () {
       $("pre code").each(function (i, block) {
         hljs.highlightBlock(block);

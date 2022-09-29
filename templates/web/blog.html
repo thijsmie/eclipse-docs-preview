@@ -1,4 +1,5 @@
 {% set page = "blog" %}
+{% set root = "" %}
 {% set title = "Eclipse Cyclone DDS - Blog" %}
 {% extends "_base.html" %}
 
@@ -12,7 +13,7 @@
 {% for post in provider.get_all_sort_by_date('blog') %}
         <div class="row">
           <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="{{ post.path }}"><h2 class="mb-2">{{ post.title }}</h2></a>
+            <a href="{{ root }}{{ post.path }}"><h2 class="mb-2">{{ post.title }}</h2></a>
             By {{ post.meta.get('author', ['unknown'])[0] }}, posted on {{ post.meta.get('date', ['unknown'])[0] }}.
           </div>
         </div>

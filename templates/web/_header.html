@@ -1,16 +1,16 @@
 {% set header_start %}
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
-      <a class="navbar-brand" href="/">
-        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      <a class="navbar-brand" href="{{ root }}/index.html">
+        <img src="{{ root }}images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
       </a>
 
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link{% if page == 'home' %} active{% endif %}" href="/">Home</a>
+            <a class="nav-link{% if page == 'home' %} active{% endif %}" href="{{ root }}index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link{% if page == 'docs' %} active{% endif %}" href="/docs">Documentation</a>
+            <a class="nav-link{% if page == 'docs' %} active{% endif %}" href="{{ root }}docs/index.html">Documentation</a>
           </li>
           <li class="nav-item">
             <a class="nav-link{% if page == 'faq' %} active{% endif %}" href="/content/faq.html">FAQ</a>
@@ -24,12 +24,9 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navGuides">
 {% for guide in provider.get_all('guides') %}
-              <li><a class="dropdown-item" href="{{ guide.path }}">{{ guide.title }}</a></li>
+              <li><a class="dropdown-item" href="{{ root }}{{ guide.path }}">{{ guide.title }}</a></li>
 {% endfor %}
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link{% if page == 'blog' %} active{% endif %}" href="/blog.html">Blog</a>
           </li>
         </ul>
       </div>
